@@ -21,7 +21,7 @@ clear() {
     echo "============================================================" | lolcat
 }
 
-# Oh My Zsh & plugin
+# Oh My Zsh & plugin (nantinya akan diinstall)
 export ZSH="$HOME/.oh-my-zsh"
 if [ -f "$ZSH/oh-my-zsh.sh" ]; then
     ZSH_THEME="robbyrussell"
