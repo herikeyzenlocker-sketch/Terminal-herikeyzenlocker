@@ -8,7 +8,7 @@ echo "Selamat datang di terminal HeriKeyzenlocker" | lolcat
 echo "ketika perintah atau command" | lolcat
 echo "============================================================" | lolcat
 
-# Fungsi anti-clear (sama seperti di atas)
+# Fungsi anti-clear
 clear() {
     command clear
     figlet "Cyber Explore" | lolcat
