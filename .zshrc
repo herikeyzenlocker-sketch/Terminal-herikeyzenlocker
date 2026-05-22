@@ -31,7 +31,7 @@ show_full() {
     command clear
     show_banner
     echo -e "\e[1;31m============================================================\e[0m"
-    cat ~/.target_ascii.txt
+    echo -e "\e[1;36m"; cat ~/.target_ascii.txt; echo -e "\e[0m"
     echo -e "\e[1;31m============================================================\e[0m"
     loading_bar
     echo -e "\e[1;31m============================================================\e[0m"
@@ -54,6 +54,6 @@ if [ -f "$ZSH/oh-my-zsh.sh" ]; then
     source $ZSH/oh-my-zsh.sh
 fi
 
-# Prompt merah putih dua baris
+# Prompt merah putih dua baris (lengkap, tanpa potongan)
 PROMPT="%F{red}┌─[%F{white}⌐■_■%F{red}]─[%F{white}CyberExplore%F{red}@%F{white}HeriKeyzenlocker%F{red}]─[%F{white}%~%F{red}]─%F{white}➜%f
 %F{red}└─[%F{white}::%F{red}]──>%f "
