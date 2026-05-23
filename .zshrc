@@ -1,6 +1,16 @@
 # ===============================
-#  CYBER EXPLORE TERMINAL vFINAL
+#  CYBER EXPLORE TERMINAL vMATRIX
 # ===============================
+
+# Animasi matrix rain (merah, fullscreen, 5 detik)
+matrix_rain() {
+    echo -e "\e[1;31mMengaktifkan MATRIX SYSTEM...\e[0m"
+    tput civis
+    clear
+    timeout 5 cmatrix -b -C red -u 2
+    tput cnorm
+    clear
+}
 
 # Fungsi loading bar dengan step 10% dan blok █
 loading_bar() {
@@ -20,14 +30,15 @@ loading_bar() {
     echo ""
 }
 
-# Tampilkan figlet besar (merah untuk Cyber Explore, putih untuk HeriKeyzenlocker)
+# Tampilkan figlet merah putih
 show_banner() {
     echo -e "\e[1;31m$(figlet -f standard "Cyber Explore")\e[0m"
     echo -e "\e[1;97m$(figlet -f standard "HeriKeyzenlocker")\e[0m"
 }
 
-# Tampilkan semua elemen
+# Tampilkan semua elemen (matrix rain + banner + loading)
 show_full() {
+    matrix_rain
     command clear
     show_banner
     echo -e "\e[1;31m============================================================\e[0m"
@@ -40,11 +51,11 @@ show_full() {
     echo -e "\e[1;31m============================================================\e[0m"
 }
 
+# Override clear (agar matrix rain muncul lagi)
+alias clear='show_full'
+
 # Pertama kali buka Termux
 show_full
-
-# Override clear (loading bar muncul lagi)
-alias clear='show_full'
 
 # Oh My Zsh & plugin
 export ZSH="$HOME/.oh-my-zsh"
@@ -54,6 +65,6 @@ if [ -f "$ZSH/oh-my-zsh.sh" ]; then
     source $ZSH/oh-my-zsh.sh
 fi
 
-# Prompt merah putih dua baris (lengkap, tanpa potongan)
+# Prompt merah putih dua baris
 PROMPT="%F{red}┌─[%F{white}⌐■_■%F{red}]─[%F{white}CyberExplore%F{red}@%F{white}HeriKeyzenlocker%F{red}]─[%F{white}%~%F{red}]─%F{white}➜%f
 %F{red}└─[%F{white}::%F{red}]──>%f "
