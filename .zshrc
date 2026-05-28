@@ -1,5 +1,5 @@
 # ===============================
-#  CYBER EXPLORE TERMINAL vMATRIX
+#  CYBER EXPLORE TERMINAL vFINAL
 # ===============================
 
 # Animasi matrix rain (merah, fullscreen, 5 detik)
@@ -36,7 +36,7 @@ show_banner() {
     echo -e "\e[1;97m$(figlet -f standard "HeriKeyzenlocker")\e[0m"
 }
 
-# Tampilkan semua elemen (matrix rain + banner + loading)
+# Tampilkan semua elemen
 show_full() {
     matrix_rain
     command clear
@@ -51,13 +51,9 @@ show_full() {
     echo -e "\e[1;31m============================================================\e[0m"
 }
 
-# Override clear (agar matrix rain muncul lagi)
 alias clear='show_full'
-
-# Pertama kali buka Termux
 show_full
 
-# Oh My Zsh & plugin
 export ZSH="$HOME/.oh-my-zsh"
 if [ -f "$ZSH/oh-my-zsh.sh" ]; then
     ZSH_THEME="robbyrussell"
@@ -65,6 +61,5 @@ if [ -f "$ZSH/oh-my-zsh.sh" ]; then
     source $ZSH/oh-my-zsh.sh
 fi
 
-# Prompt merah putih dua baris
 PROMPT="%F{red}┌─[%F{white}⌐■_■%F{red}]─[%F{white}CyberExplore%F{red}@%F{white}HeriKeyzenlocker%F{red}]─[%F{white}%~%F{red}]─%F{white}➜%f
 %F{red}└─[%F{white}::%F{red}]──>%f "
