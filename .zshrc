@@ -12,7 +12,7 @@ matrix_rain() {
     clear
 }
 
-# Fungsi loading bar dengan step 10% dan blok █
+# Fungsi loading bar
 loading_bar() {
     echo ""
     echo -e "\e[1;31mBERANI\e[0m \e[1;97mBEBAS BERKARYA\e[0m"
@@ -36,13 +36,20 @@ show_banner() {
     echo -e "\e[1;97m$(figlet -f standard "HeriKeyzenlocker")\e[0m"
 }
 
+# Tampilkan ASCII art target dengan interpretasi warna (merah-putih)
+show_target() {
+    while IFS= read -r line; do
+        echo -e "$line"
+    done < ~/.target_ascii.txt
+}
+
 # Tampilkan semua elemen
 show_full() {
     matrix_rain
     command clear
     show_banner
     echo -e "\e[1;31m============================================================\e[0m"
-    echo -e "\e[1;36m"; cat ~/.target_ascii.txt; echo -e "\e[0m"
+    show_target
     echo -e "\e[1;31m============================================================\e[0m"
     loading_bar
     echo -e "\e[1;31m============================================================\e[0m"
@@ -58,6 +65,7 @@ export ZSH="$HOME/.oh-my-zsh"
 if [ -f "$ZSH/oh-my-zsh.sh" ]; then
     ZSH_THEME="robbyrussell"
     plugins=(git zsh-autosuggestions)
+plugins=(git zsh-autosuggestions)
     source $ZSH/oh-my-zsh.sh
 fi
 
